@@ -12,16 +12,16 @@ resultsDic = {("rock", "scissors")}
 exit = ''
 def play():
   global exit
-  p = int(input("Type \n 1 for rock \n 2 for paper \n 3 for scissors \n >"))
-  exit = p
+  exit = ''
+  while exit not in range(0,3):
+    exit = int(input("Type \n 1 for rock \n 2 for paper \n 3 for scissors \n >"))
+  #assert p in range(1,3), "Not in range 1-3"
+  p = exit
   c = Moves(com.checkTendencies()).name
   com.storeMove(Moves(p).name)
   print(com.oppMoves)
   return(Moves(p).name,c)
-
-while exit != 0:
-  result = play()
-  print(result)
+def determineResults(results):
   if result[0] == 'rock' and result[1] == 'paper':
     print(Results(2).name)
   elif result[0] == 'rock' and result[1] == 'scissors':
@@ -36,5 +36,12 @@ while exit != 0:
     print(Results(2).name)
   else:
     print(Results(3).name)
+while exit != 0:
+  result = play()
+  print(result)
+  print()
+  print()
+  determineResults(result)
+  
   
   
