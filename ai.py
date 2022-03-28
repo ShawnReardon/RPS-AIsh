@@ -2,13 +2,15 @@ import random
 from enums import Moves
 class AI:
   
-  def __init__(self):
+  def __init__(self, name):
+    self.name = name
     self.oppMoves = ["rock"]
     self.nextMove = 0
     self.n_rock = 0
     self.n_paper = 0
     self.n_scissors = 0
     self.wonLastTurn = False
+    self.isDraw = False
 
   def resetCnts(self):
     self.n_rock = 0
@@ -18,8 +20,12 @@ class AI:
     self.oppMoves.append(move)
   def won(self):
     self.wonLastTurn = True
+    self.isDraw = False
   def lost(self):
     self.wonLastTurn = False
+    self.isDraw = False
+  def draw(self):
+    self.isDraw = True
   def checkTendencies(self):
     i = self.oppMoves[len(self.oppMoves) - 1]
     if i == "rock":
@@ -34,6 +40,22 @@ class AI:
       return self.nextMove
     if self.wonLastTurn: #may remove
       return self.nextMove
+    elif self.isDraw:
+      print('\nEducated Guess i: ', i, self.name)
+      self.isDraw = False
+      if i == 'rock':
+        
+        self.nextMove = 2
+        return self.nextMove
+      elif i == 'paper':
+        
+        self.nextMove = 3
+        return self.nextMove
+      elif i == 'scissors':
+        
+        self.nextMove = 1
+        return self.nextMove
+      
       
     if self.n_rock >= 2:
         #print('Special Rock')
@@ -53,7 +75,7 @@ class AI:
       self.nextMove = Moves[random.choice(self.oppMoves)]
       
       
-    if len(self.oppMoves) >= 9:
+    if len(self.oppMoves) >= 4:
         self.oppMoves = []
 
     
