@@ -1,6 +1,7 @@
 from enums import Moves, Results
-from random import choice
+from random import choice, randint
 from ai import AI
+from time import sleep
  
 # creating enumerations using class
 
@@ -16,7 +17,7 @@ def play():
   debug = False
   exit = ''
   while exit not in range(0,4):
-    exit = int(input("Type \n 1 for rock \n 2 for paper \n 3 for scissors \n > "))
+    exit = randint(1,3) #int(input("Type \n 1 for rock \n 2 for paper \n 3 for scissors \n > "))
   assert exit in range(0,4), "Not in range 1-3"
   p = exit
   c = Moves(com.checkTendencies()).name
@@ -48,6 +49,7 @@ while exit != 0:
   #print()
   print()
   verdict = determineResults(result)
+  print(verdict)
   print()
   if verdict == 'P1_WIN':
     p1_wins += 1
@@ -56,6 +58,7 @@ while exit != 0:
     p2_wins += 1
     com.won()
   print(p1_wins, p2_wins)
+  sleep(.5)
   
   
   
