@@ -6,7 +6,8 @@ from ai import AI
 
 com = AI()
 moves = {"rock":1, "paper":2, "scissors":3}
-
+p1_wins = 0
+p2_wins = 0
 resultsDic = {("rock", "scissors")}
 #winCon = ((Moves(0),Moves(0), Results(3)))
 exit = ''
@@ -26,28 +27,35 @@ def play():
 
 def determineResults(results):
   if result[0] == 'rock' and result[1] == 'paper':
-    print(Results(2).name)
+    return Results(2).name
   elif result[0] == 'rock' and result[1] == 'scissors':
-    print(Results(1).name)
+    return Results(1).name
   elif result[0] == 'paper' and result[1] == 'rock':
-    print(Results(1).name)
+    return Results(1).name
   elif result[0] == 'paper' and result[1] == 'scissors':
-    print(Results(2).name)
+    return Results(2).name
   elif result[0] == 'scissors' and result[1] == 'paper':
-    print(Results(1).name)
+    return Results(1).name
   elif result[0] == 'scissors' and result[1] == 'rock':
-    print(Results(2).name)
+    return Results(2).name
   else:
-    print(Results(3).name)
+    return Results(3).name
 while exit != 0:
   result = play()
   print()
   print('P1: ', result[0])
-  print('P1: ', result[1])
+  print('P2: ', result[1])
   #print()
   print()
-  determineResults(result)
+  verdict = determineResults(result)
   print()
+  if verdict == 'P1_WIN':
+    p1_wins += 1
+    com.lost()
+  elif verdict == 'P2_WIN':
+    p2_wins += 1
+    com.won()
+  print(p1_wins, p2_wins)
   
   
   
