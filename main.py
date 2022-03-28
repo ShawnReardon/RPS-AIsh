@@ -13,7 +13,7 @@ exit = ''
 def play():
   global exit
   exit = ''
-  while exit not in range(0,3):
+  while exit not in range(0,4):
     exit = int(input("Type \n 1 for rock \n 2 for paper \n 3 for scissors \n >"))
   #assert p in range(1,3), "Not in range 1-3"
   p = exit
