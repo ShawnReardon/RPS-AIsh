@@ -25,7 +25,7 @@ class AI:
         self.n_scissors+=1
     
     if self.n_rock >= 2:
-        print('Special Rock')
+        #print('Special Rock')
         self.resetCnts()
         self.oppMoves = []
         self.nextMove = 1
@@ -45,8 +45,8 @@ class AI:
     if len(self.oppMoves) == 9:
         self.oppMoves = []
 
-    if random.randint(0, 9) == 0:
-      print('***CHANCE***')
+    if random.randint(0, 9) > 7:
+      print('\n***CHANCE***')
       self.nextMove = random.randint(1,3)
       
 
