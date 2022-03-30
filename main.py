@@ -58,8 +58,15 @@ def determineResults(results):
     return Results(2).name
   else:
     return Results(3).name
+pVc = False
+if input("1 for PvC, 2 for CvC > ") == 1:
+  pVc = False
+else:
+  pVc = True
+  
 while exit != 0:
-  result = play(True)
+  
+  result = play(pVc)
   print()
   print('P1: ', result[0])
   print('P2: ', result[1])
