@@ -1,5 +1,6 @@
 import random
 from enums import Moves
+from winCons import winCons
 class AI:
   
   def __init__(self, name):
@@ -19,6 +20,7 @@ class AI:
   def storeMove(self, move):
     self.oppMoves.append(move)
   def won(self):
+    print(winCons['rock'])
     self.wonLastTurn = True
     self.isDraw = False
   def lost(self):
@@ -30,6 +32,7 @@ class AI:
     i = self.oppMoves[len(self.oppMoves) - 1]
     if i == "rock":
         self.n_rock+=1
+        print('ROCKS', self.n_rock)
     if i == "paper":
         self.n_paper+=1
     if i == "scissors":
@@ -43,6 +46,7 @@ class AI:
     elif self.isDraw:
       print('\nEducated Guess i: ', i, self.name)
       self.isDraw = False
+    
       if i == 'rock':
         
         self.nextMove = 2
@@ -58,25 +62,26 @@ class AI:
       
       
     if self.n_rock >= 2:
-        #print('Special Rock')
+        print('Special Rock: paper')
         self.resetCnts()
-        self.oppMoves = []
-        self.nextMove = 1
+        self.oppMoves = list()
+        self.nextMove = Moves[winCons['rock']]
         
     elif self.n_paper >= 2:
         self.resetCnts()
-        self.oppMoves = []
-        self.nextMove = 2
+        self.oppMoves = list()
+        self.nextMove = Moves[winCons['paper']]
     elif self.n_scissors >= 2:
         self.resetCnts()
-        self.oppMoves = []
-        self.nextMove = 3
+        self.oppMoves = list()
+        self.nextMove = Moves[winCons['scissors']]
     else:
       self.nextMove = Moves[random.choice(self.oppMoves)]
       
       
     if len(self.oppMoves) >= 4:
-        self.oppMoves = []
+        self.oppMoves = list()
+    print('whyyyyy',  len(self.oppMoves) )
 
     
       

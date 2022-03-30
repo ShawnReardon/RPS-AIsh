@@ -16,7 +16,7 @@ exit = ''
 def play(isPlayer):
   playerVsCom = isPlayer
   global exit
-  debug = False
+  debug = True
   exit = ''
   if playerVsCom:
     while exit not in range(0,4):
@@ -59,7 +59,7 @@ def determineResults(results):
   else:
     return Results(3).name
 while exit != 0:
-  result = play(False)
+  result = play(True)
   print()
   print('P1: ', result[0])
   print('P2: ', result[1])
