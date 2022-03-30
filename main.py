@@ -16,7 +16,7 @@ exit = ''
 def play(isPlayer):
   playerVsCom = isPlayer
   global exit
-  debug = True
+  debug = False
   exit = ''
   if playerVsCom:
     while exit not in range(0,4):

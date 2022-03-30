@@ -20,7 +20,7 @@ class AI:
   def storeMove(self, move):
     self.oppMoves.append(move)
   def won(self):
-    print(winCons['rock'])
+    #print(winCons['rock'])
     self.wonLastTurn = True
     self.isDraw = False
   def lost(self):
@@ -32,7 +32,7 @@ class AI:
     i = self.oppMoves[len(self.oppMoves) - 1]
     if i == "rock":
         self.n_rock+=1
-        print('ROCKS', self.n_rock)
+        #print('ROCKS', self.n_rock)
     if i == "paper":
         self.n_paper+=1
     if i == "scissors":
@@ -62,7 +62,7 @@ class AI:
       
       
     if self.n_rock >= 2:
-        print('Special Rock: paper')
+        #print('Special Rock: paper')
         self.resetCnts()
         self.oppMoves = list()
         self.nextMove = Moves[winCons['rock']]
@@ -81,7 +81,7 @@ class AI:
       
     if len(self.oppMoves) >= 4:
         self.oppMoves = list()
-    print('whyyyyy',  len(self.oppMoves) )
+    #print('whyyyyy',  len(self.oppMoves) )
 
     
       
