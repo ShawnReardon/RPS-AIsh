@@ -59,10 +59,11 @@ def determineResults(results):
   else:
     return Results(3).name
 pVc = False
-if input("1 for PvC, 2 for CvC > ") == 1:
-  pVc = False
-else:
+if input("1 for PvC, 2 for CvC > ") == '1':
   pVc = True
+  
+else:
+  pVc = False
   
 while exit != 0:
   
